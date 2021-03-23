@@ -1,0 +1,97 @@
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+	margin: 0;
+}
+div, section, header, footer, p, h1, h2 {
+	box-sizing: border-box;
+}
+a {
+	color: royalblue;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* 가로 폭을 조절하는 클래스 */
+.global-width {
+	max-width: 620px;
+	margin: 0 auto;
+	/* rem 단위는 문서의 최상위 요소, 즉 html 요소의 크기의 몇 배인지로 크기를 정합니다. */
+	padding: 1rem; 
+}
+
+/* 그림을 감싸고 있는 영역 */
+.scroll-graphic {
+	/* x축 영역 밖으로 나가는 경우 표시하지 않도록 합니다.(스크롤바 생성하지 않음) */
+	overflow-x: hidden;
+	/* 스크롤바에 걸리는 위치가 (top)0일 때 action */
+	position: sticky; 
+	top: 0;
+	/* position: sticky ➡ 기본값으로 높이를 차지하지 않기 때문에 명시해주어야 합니다. */
+	height: 100vh; /* vh는 vertical height: 1vh가 viewport(display상의 표시 영역)의 0.01 */
+}
+
+/* 사진을 같은 위치에 한 곳으로 겹치는 클래스 */
+.graphic-item {
+	/* 플렉서블 박스의 요소를 수평, 수직의 중앙으로 설정 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* 절대 위치로 사진들을 한 곳에 겹치게 합니다. */
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0; /* 불투명도 */
+	transition: 0.5s; /* 속성 변경 시 애니메이션 속도 */
+	will-change: opactiy; /* 변경될 요소를 미리 알려줍니다. (브라우저 성능) */
+}
+
+.visible {
+	opacity: 1;
+}
+
+.scene-img {
+	max-height: 100vh;
+}
+
+/* 스크롤 시 보여질 텍스트 영역 */
+.scroll-text {
+	position: relative; /* 기본은 static */
+}
+
+/* 말풍선 */
+.step {
+	margin-bottom: 60vh;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 0  0 3px;
+}
+
+.bird {
+	position: absolute;
+	left: 0;
+	bottom: 70%;
+	width: 100px;
+	transform: translateX(-100%);
+	transition: 1.5s 0.5s linear;
+}
+
+[data-index="5"] .bird {
+	left: 30%;
+	bottom: 30%;
+}
+
+.global-footer {
+	padding: 2rem;
+	text-align: center;
+}
+
+.strikethrough {
+	text-decoration: line-through;
+}
